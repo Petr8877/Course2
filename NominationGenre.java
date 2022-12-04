@@ -12,16 +12,11 @@ import java.io.PrintWriter;
 public class NominationGenre extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
+        String[] genres = {"Horror", "Action", "Western", "Detective", "Drama", "Comedy", "Melodrama", "Musical", "Noir", "Tragedy"};
+        Vault.addFromGenreKey(genres);
         PrintWriter writer = resp.getWriter();
-        writer.write("Genre_1"+ "\n");
-        writer.write("Genre_2"+ "\n");
-        writer.write("Genre_3"+ "\n");
-        writer.write("Genre_4"+ "\n");
-        writer.write("Genre_5"+ "\n");
-        writer.write("Genre_6"+ "\n");
-        writer.write("Genre_7"+ "\n");
-        writer.write("Genre_8"+ "\n");
-        writer.write("Genre_9"+ "\n");
-        writer.write("Genre_10"+ "\n");
+        for (String genre : genres) {
+            writer.write("<p>" + genre + "</p>");
+        }
     }
 }

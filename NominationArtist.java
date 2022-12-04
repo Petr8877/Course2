@@ -17,10 +17,12 @@ public class NominationArtist extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
         String[] singers = {"Prodigy", "Bring_Me_The_Horizon", "Foo_Fighters", "Blink_182"};
+        Vault.addFromMapArtistKey(singers);
         PrintWriter writer = resp.getWriter();
         int count = 1;
         for (String singer : singers) {
-            writer.write(count++ + ". " + singer + "\n");
+            writer.write("<p>" + count++ + ". " + singer + "</p>");
         }
+
     }
 }
