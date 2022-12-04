@@ -1,5 +1,7 @@
-package kasper.classwork.voting;
+package kasper.classwork.voting.servlets;
 
+
+import kasper.classwork.voting.Vault;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,13 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Map;
 
 @WebServlet(name = "Vote", urlPatterns = "/voteAll")
 public class Vote extends HttpServlet {
 
-    private static final String START_PARAM_GENRE = "genre_";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,8 +24,8 @@ public class Vote extends HttpServlet {
         String aboutMe = req.getParameter("me");
         PrintWriter writer = resp.getWriter();
 
-        if (genres.length < 3){
-           writer.write("Минимальное количество выбранных жанров 3");
+        if (genres.length < 3) {
+            writer.write("Минимальное количество выбранных жанров 3");
         }
 
         writer.write("Введите информацию о себе");
